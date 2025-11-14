@@ -10,6 +10,7 @@
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
 
+require Logger
 alias GrncHotel.Repo
 alias GrncHotel.Agents.Agent
 alias GrncHotel.Suppliers.Supplier
@@ -25,6 +26,8 @@ suppliers = [
 ]
 
 Enum.each(suppliers, &Repo.insert!(Supplier.changeset(%Supplier{}, &1)))
+
+Logger.info("Suppliers Seeded!")
 
 # --- Agents ------------------------------------------------------
 
@@ -47,3 +50,21 @@ agents = [
 ]
 
 Enum.each(agents, &Repo.insert!(Agent.changeset(%Agent{}, &1)))
+
+Logger.info("Agents Seeded!")
+
+## Locations CityCodes
+alias GrncHotel.Locations
+
+IO.puts("Seeding City Codes...")
+
+[
+  %{city_code: "DEL", city_name: "Delhi"},
+  %{city_code: "BOM", city_name: "Mumbai"},
+  %{city_code: "MAA", city_name: "Chennai"},
+  %{city_code: "BLR", city_name: "Bangalore"},
+  %{city_code: "HYD", city_name: "Hyderabad"}
+]
+|> Enum.each(&Locations.create_city_code/1)
+
+Logger.info("City Codes Seeded!")
