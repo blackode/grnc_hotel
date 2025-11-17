@@ -1,5 +1,4 @@
 defmodule GrncHotel.Agents do
-  import Ecto.Query
   alias GrncHotel.Repo
   alias GrncHotel.Agents.Agent
 
