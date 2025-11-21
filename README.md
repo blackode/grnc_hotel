@@ -15,7 +15,7 @@ You will be given access to a GitHub repository containing a Phoenix project tem
 1. Clone the repository
 
    ```
-   git clone `https://github.com/blackode/grnc_hotel`
+   git clone https://github.com/blackode/grnc_hotel
    ```
 
 2. Install dependencies
