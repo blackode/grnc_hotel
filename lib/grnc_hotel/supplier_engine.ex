@@ -5,11 +5,16 @@ defmodule GrncHotel.SupplierEngine do
 
   import Ecto.Query, warn: false
 
+  alias GrncHotel.Repo
+  alias GrncHotel.Suppliers.Supplier
+
   def disabled_suppliers() do
     # TODO: Logic here using query to get disabled suppliers from DBConnection
+    Repo.all_by(Supplier, status: false)
   end
 
   def enabled_suppliers() do
     # TODO: Logic here
+    Repo.all_by(Supplier, status: true)
   end
 end

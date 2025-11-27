@@ -7,6 +7,9 @@ defmodule GrncHotelWeb.Router do
 
   scope "/api", GrncHotelWeb do
     pipe_through :api
+
+    get "/agents", AgentController, :index
+    post "/fetch_hotels", HotelController, :fetch_hotels
   end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development
